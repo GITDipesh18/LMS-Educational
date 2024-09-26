@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - LMS</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    Custom CSS Styles
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .success-container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #28a745;
+            margin-bottom: 10px;
+            animation: bounceIn 1s;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .return-home {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .return-home:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .icon-success {
+            font-size: 80px;
+            color: #28a745;
+            margin-bottom: 20px;
+            animation: popIn 1s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.6);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: #ffda44;
+            animation: confetti-fall 3s infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        /* Popup Message */
+        .popup-message {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-message.show {
+            display: block;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <i class="fas fa-check-circle icon-success"></i>
+        <h1>Success!</h1>
+        <p>Your action was completed successfully.</p>
+        <a href="{{ url_for('index') }}" class="return-home">Return to Home</a>
+    </div>
+
+  
+    <div class="confetti">
+      
+        <div class="confetti-piece" style="top: 10px; left: 10%;"></div>
+        <div class="confetti-piece" style="top: 30px; left: 30%;"></div>
+        <div class="confetti-piece" style="top: 50px; left: 50%;"></div>
+        <div class="confetti-piece" style="top: 70px; left: 70%;"></div>
+        <div class="confetti-piece" style="top: 90px; left: 90%;"></div>
+       
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popup" class="popup-message">
+        You have successfully completed the action! 🎉
+    </div>
+
+    <script>
+       
+        function showPopup() {
+            var popup = document.getElementById('popup');
+            popup.classList.add('show');
+
+           
+            setTimeout(function() {
+                popup.classList.remove('show');
+            }, 5000);
+        }
+
+        
+        window.onload = function() {
+            showPopup();
+        };
+    </script>
+</body>
+</html>

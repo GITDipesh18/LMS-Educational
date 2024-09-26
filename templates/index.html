@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - LMS</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Fontfor icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS Stylesheet -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+    
+        /* NavStyles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: #333;
+        }
+    
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+    
+        .nav-link:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+    
+        /* Hero-Section */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 40px;
+            background-color: #f0f8ff;
+            flex-wrap: wrap;
+        }
+    
+        .hero-text {
+            max-width: 50%;
+        }
+    
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin: 0;
+            color: #333;
+        }
+    
+        .hero-text p {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #666;
+        }
+    
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .cta-button:hover {
+            background-color: #ff4b3a;
+        }
+    
+        .hero-image {
+            max-width: 45%;
+            text-align: center;
+        }
+    
+        .hero-image img {
+            width: 100%;
+            max-height: 600px; 
+            border-radius: 10px;
+            max-width: 500px;
+            margin-right: 80px;
+        }
+    
+        /* Features-Section */
+        .features-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 80px 40px;
+            background-color: #fff;
+            flex-wrap: wrap;
+        }
+    
+        .feature-box {
+            text-align: center;
+            max-width: 300px;
+            margin: 20px 0;
+        }
+    
+        .feature-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    
+        .feature-box p {
+            font-size: 18px;
+            color: #666;
+        }
+    
+        .feature-box i {
+            font-size: 50px;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        /* Floating-Consultation-Button */
+        .consultation-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color:#ff6f61 ;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .consultation-button:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
+
+        /* Pulsing-Animation */
+        .consultation-button.pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header-withNav -->
+    <header>
+        <nav>
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
+            <a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a>
+            <a href="{{ url_for('consultation') }}" class="nav-link"> Book Consultation</a>
+           
+            <a href="{{ url_for('about') }}" class="nav-link">About Us</a>
+            <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
+            <a href="{{ url_for('testimonials') }}" class="nav-link">Testimonials</a>
+            <a href="{{ url_for('edit_profile') }}" class="nav-link">Admin Panel</a>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>Welcome to the Learning Management System</h1>
+                <p>Explore a variety of courses and enhance your skills with us!</p>
+                <a href="{{ url_for('signup') }}" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/LMSimage.webp') }}" alt="Learning Illustration">
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="feature-box">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h2>Learn From Experts</h2>
+            <p>Access courses taught by industry leaders and experts.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-laptop"></i>
+            <h2>Flexible Learning</h2>
+            <p>Study at your own pace, anytime, anywhere.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-chart-line"></i>
+            <h2>Track Your Progress</h2>
+            <p>Monitor your course completion and achievement goals.</p>
+        </div>
+    </section>
+
+    <!-- Floating Book Consultation Button -->
+    <a href="{{ url_for('consultation') }}" class="consultation-button pulse">
+        Book Consultation <i class="fas fa-calendar-alt"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Learning Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

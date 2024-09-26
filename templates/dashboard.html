@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LMS</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 36px;
+            position: relative;
+        }
+
+        header h1:before {
+            content: "🎓 ";
+            position: absolute;
+            left: -50px;
+        }
+
+        .dashboard-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px;
+        }
+
+        .course-list {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            transition: all 0.3s ease;
+        }
+
+        .course-list:hover {
+            box-shadow: 0px 6px 35px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .course-list h2 {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .course-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .course-list ul li {
+            font-size: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .course-list ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .course-list ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .course-list ul li a:before {
+            content: "📘";
+            font-size: 24px;
+            margin-right: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .course-list ul li:hover {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .course-list ul li:hover a:before {
+            content: "🚀";
+        }
+
+        .course-list ul li:hover a {
+            color: #ff6f61;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            font-size: 14px;
+            color: #666;
+        }
+        .return-link{
+            color: #ff6f61;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-section {
+                padding: 20px;
+            }
+
+            .course-list {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Learning Dashboard</h1>
+    </header>
+
+    <section class="dashboard-section">
+        <div class="course-list">
+            <h2>Your Courses</h2>
+            <ul>
+                <li><a href="{{ url_for('video_list', course_name='frontend') }}">Frontend Development</a></li>
+                <li><a href="{{ url_for('video_list', course_name='backend') }}">Backend Development</a></li>
+                <li><a href="{{ url_for('video_list', course_name='fullstack') }}">Full Stack Development</a></li>
+                <li><a href="{{ url_for('video_list', course_name='embedded') }}">Embedded Systems</a></li>
+                <li><a href="{{ url_for('video_list', course_name='uiux') }}">UI/UX Designer</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Learning Management System. All rights reserved.</p>
+        <a href="{{ url_for('index') }}" class="return-link">Return to Home</a>
+    </footer>
+
+    
+    <script>
+        
+        document.querySelectorAll('.course-list ul li').forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

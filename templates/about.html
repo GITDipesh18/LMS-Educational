@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LMS</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS Styles -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        header h1:before {
+            content: "👋";
+            font-size: 36px;
+        }
+
+        .about-section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about-section p:before {
+            content: "📖";
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .mission-statement {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <h1>About Us</h1>
+    </header>
+
+    <section class="about-section">
+        <p>Welcome to our Learning Management System, where we believe that knowledge is power. Our platform connects learners to the best resources in the industry, allowing them to master new skills at their own pace.</p>
+        <p>Our mission is to make high-quality education accessible to everyone, anytime, anywhere. We partner with leading industry experts to provide valuable courses that help you achieve your personal and professional goals.</p>
+        <p class="mission-statement">Join us on our journey to make learning more efficient, accessible, and engaging for everyone.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Learning Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
